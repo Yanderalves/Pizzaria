@@ -1,24 +1,17 @@
 import { Request, Response } from "express";
 import { CreateUserService } from "../../services/user/CreateUserService";
-import prismaClient from "../../prisma";
 
 class CreateUserController {
-    handle(req: Request, res: Response) {
+    async handle(req: Request, res: Response) {
         const { name, email, password } = req.body;
 
         if (!email) {
-            throw new Error("User/Password Incorrect")
+            throw new Error("Email is missing")
         }
 
-        const userAlreadyExists = prismaClient.user.findFirst({
-            where: {
-                email: email
-            }
-        })
+        const user = await new CreateUserService().execute({ name, email, password });
 
-        // if (userAlreadyExists) {
-        //     throw new Error("user already exists")
-        // }
+        res.json(user);
 
     }
 }

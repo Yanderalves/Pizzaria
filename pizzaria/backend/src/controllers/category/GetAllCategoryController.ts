@@ -8,8 +8,6 @@ class GetAllCategoriesController {
 
         const categories = await getAllCategoriesService.execute();
 
-        console.log(categories);
-
         return res.json(categories)
 
     }

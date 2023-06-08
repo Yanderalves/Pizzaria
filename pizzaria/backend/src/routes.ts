@@ -12,6 +12,8 @@ import { GetAllCategoriesController } from "./controllers/category/GetAllCategor
 import { CreateProductController } from "./controllers/product/CreateProductController";
 import { GetAllProductsByCategoryController } from "./controllers/product/GetAllProductsByCategoryController";
 
+import { CreateOrderController } from "./controllers/order/CreateOrderController";
+
 import { userValid } from "./middlewares/UserValid";
 
 import uploadConfig from "./config/multer"
@@ -39,5 +41,9 @@ router.get("/category", userValid, new GetAllCategoriesController().handle)
 router.post("/product", userValid, upload.single("banner"), new CreateProductController().handle)
 
 router.get("/category/product", userValid, new GetAllProductsByCategoryController().handle)
+
+// Rotas ORDER
+
+router.post("/order", userValid, new CreateOrderController().handle);
 
 export { router };

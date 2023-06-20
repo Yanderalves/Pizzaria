@@ -18,6 +18,7 @@ import { userValid } from "./middlewares/UserValid";
 
 import uploadConfig from "./config/multer"
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
+import { AddItemController } from "./controllers/order/AddItemController";
 
 const router = Router();
 
@@ -48,5 +49,7 @@ router.get("/category/product", userValid, new GetAllProductsByCategoryControlle
 router.post("/order", userValid, new CreateOrderController().handle);
 
 router.delete("/order", userValid, new RemoveOrderController().handle);
+
+router.post("order/item", userValid, new AddItemController().handle);
 
 export { router };

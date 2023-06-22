@@ -48,11 +48,13 @@ model Product {
 }
 
 model Order {
-  id     String  @id @default(uuid())
-  table  Int
-  status Boolean @default(false)
-  draft  Boolean @default(true)
-  name   String?
+  id         String    @id @default(uuid())
+  table      Int
+  status     Boolean   @default(false)
+  draft      Boolean   @default(true)
+  name       String?
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
 
   Itens Item[]
 
@@ -66,6 +68,9 @@ model Item {
   orderId   String?
   Product   Product? @relation(fields: [productId], references: [id])
   productId String?
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
 
   @@map("Itens")
 }

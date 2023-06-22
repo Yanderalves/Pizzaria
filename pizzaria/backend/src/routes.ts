@@ -19,6 +19,10 @@ import { userValid } from "./middlewares/UserValid";
 import uploadConfig from "./config/multer"
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
 import { AddItemController } from "./controllers/order/AddItemController";
+import { SendOrderController } from "./controllers/order/SendOrderController";
+import { ListAllOrdersController } from "./controllers/order/ListAllOrdersController";
+import { OrderDetailsController } from "./controllers/order/OrderDetailsController";
+import { FinishOrderController } from "./controllers/order/FinishOrderController";
 
 const router = Router();
 
@@ -50,6 +54,14 @@ router.post("/order", userValid, new CreateOrderController().handle);
 
 router.delete("/order", userValid, new RemoveOrderController().handle);
 
-router.post("order/item", userValid, new AddItemController().handle);
+router.post("/order/item", userValid, new AddItemController().handle);
+
+router.patch("/order", userValid, new SendOrderController().handle);
+
+router.get("/orders", userValid, new ListAllOrdersController().handle);
+
+router.get("/order/details", userValid, new OrderDetailsController().handle);
+
+router.patch("/order/finish", userValid, new FinishOrderController().handle);
 
 export { router };

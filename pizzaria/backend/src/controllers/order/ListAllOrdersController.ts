@@ -7,7 +7,7 @@ class ListAllOrdersController {
 
         const ordersList = await listAllOrderService.execute();
 
-        return res.json({ ordersList })
+        return res.json(ordersList)
     }
 }
 

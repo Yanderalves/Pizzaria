@@ -23,10 +23,19 @@ import { SendOrderController } from "./controllers/order/SendOrderController";
 import { ListAllOrdersController } from "./controllers/order/ListAllOrdersController";
 import { OrderDetailsController } from "./controllers/order/OrderDetailsController";
 import { FinishOrderController } from "./controllers/order/FinishOrderController";
+import cors from "cors";
 
 const router = Router();
 
 const upload = multer(uploadConfig.upload("./uploads"))
+
+router.use(
+    cors({
+        origin: 'http://localhost:3000', // Origem permitida
+        methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+        allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
+    }) 
+);
 
 // Rotas USER
 

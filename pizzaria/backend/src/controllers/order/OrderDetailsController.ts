@@ -14,8 +14,6 @@ class OrderDetailsController {
 
         const orderDetails = await orderDetailService.execute({ order_id });
 
-        console.log(orderDetails)
-
         return res.json(orderDetails);
     }
 }

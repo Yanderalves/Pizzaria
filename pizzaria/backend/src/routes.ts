@@ -32,7 +32,7 @@ const upload = multer(uploadConfig.upload("./uploads"))
 router.use(
     cors({
         origin: 'http://localhost:3000', // Origem permitida
-        methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Métodos permitidos
         allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
     })
 );

@@ -9,7 +9,7 @@ class OrderDetailsService {
 
         console.log(order_id)
 
-        const item = prismaClient.item.findFirst({
+        const item = prismaClient.item.findMany({
             where: {
                 order_id: order_id
             },

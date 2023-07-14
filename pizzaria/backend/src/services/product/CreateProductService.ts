@@ -5,11 +5,11 @@ interface ProductRequest {
     price: string;
     description: string;
     banner: string;
-    categoryId: string;
+    category_id: string;
 }
 
 class CreateProductService {
-    async execute({ name, price, description, banner, categoryId }: ProductRequest) {
+    async execute({ name, price, description, banner, category_id }: ProductRequest) {
 
         const product = prismaClient.product.create({
             data: {
@@ -17,7 +17,7 @@ class CreateProductService {
                 price,
                 description,
                 banner,
-                categoryId
+                category_id
             }
         })
 

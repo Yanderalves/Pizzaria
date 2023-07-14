@@ -4,15 +4,15 @@ import { GetAllProductsByCategoryService } from '../../services/product/GetAllPr
 
 class GetAllProductsByCategoryController {
     async handle(req: Request, res: Response) {
-        const categoryId = req.query.categoryId as string;
+        const category_id = req.query.category_id as string;
 
-        if (!categoryId) {
+        if (!category_id) {
             throw new Error("Category is Required ")
         }
 
         const getAllProductsByCategoryService = new GetAllProductsByCategoryService();
 
-        const listProductsByCategory = await getAllProductsByCategoryService.execute({ categoryId });
+        const listProductsByCategory = await getAllProductsByCategoryService.execute({ category_id });
 
         return res.json(listProductsByCategory);
 

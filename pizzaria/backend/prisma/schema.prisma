@@ -26,8 +26,7 @@ model Category {
   name       String
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
-
-  products Product[]
+  products   Product[]
 
   @@map("categories")
 }
@@ -40,37 +39,39 @@ model Product {
   banner      String
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
-  category    Category? @relation(fields: [categoryId], references: [id])
-  Itens       Item[]
-  categoryId  String?
+
+  category    Category @relation(fields: [category_id], references: [id])
+  category_id String
+  items       Item[]
 
   @@map("products")
 }
 
 model Order {
-  id         String    @id @default(uuid())
-  table      Int
-  status     Boolean   @default(false)
-  draft      Boolean   @default(true)
-  name       String?
+  id     String  @id @default(uuid())
+  table  Int
+  status Boolean @default(false)
+  draft  Boolean @default(true)
+  name   String?
+
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
-
-  Itens Item[]
+  items      Item[]
 
   @@map("orders")
 }
 
 model Item {
-  id        String   @id @default(uuid())
-  amount    Int
-  Order     Order?   @relation(fields: [orderId], references: [id])
-  orderId   String?
-  Product   Product? @relation(fields: [productId], references: [id])
-  productId String?
+  id     String @id @default(uuid())
+  amount Int
 
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 
-  @@map("Itens")
+  order      Order   @relation(fields: [order_id], references: [id])
+  product    Product @relation(fields: [product_id], references: [id])
+  order_id   String
+  product_id String
+
+  @@map("items")
 }

@@ -49,8 +49,8 @@ CREATE TABLE "orders" (
 CREATE TABLE "Itens" (
     "id" TEXT NOT NULL,
     "amount" INTEGER NOT NULL,
-    "orderId" TEXT,
-    "productId" TEXT,
+    "order_id" TEXT,
+    "product_id" TEXT,
 
     CONSTRAINT "Itens_pkey" PRIMARY KEY ("id")
 );
@@ -59,7 +59,7 @@ CREATE TABLE "Itens" (
 ALTER TABLE "products" ADD CONSTRAINT "products_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "categories"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Itens" ADD CONSTRAINT "Itens_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "orders"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Itens" ADD CONSTRAINT "Itens_order_id_fkey" FOREIGN KEY ("order_id") REFERENCES "orders"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Itens" ADD CONSTRAINT "Itens_productId_fkey" FOREIGN KEY ("productId") REFERENCES "products"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Itens" ADD CONSTRAINT "Itens_product_id_fkey" FOREIGN KEY ("product_id") REFERENCES "products"("id") ON DELETE SET NULL ON UPDATE CASCADE;

@@ -34,7 +34,7 @@ router.use(
         origin: 'http://localhost:3000', // Origem permitida
         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
         allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
-    }) 
+    })
 );
 
 // Rotas USER
@@ -43,7 +43,7 @@ router.post("/users", new CreateUserController().handle)
 
 router.post("/login", new AuthUserController().handle)
 
-router.get("/me", userValid, new DetailsUserController().handle)
+router.get("/me", new DetailsUserController().handle)
 
 // Rotas CATEGORY
 

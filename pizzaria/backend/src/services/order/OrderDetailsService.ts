@@ -1,22 +1,28 @@
 import prismaClient from "../../prisma";
 
 interface OrderRequest {
-    orderId: string;
+    order_id: string;
 }
 
 class OrderDetailsService {
-    async execute({ orderId }: OrderRequest) {
+    async execute({ order_id }: OrderRequest) {
+
+        console.log(order_id)
+
         const item = prismaClient.item.findFirst({
             where: {
-                orderId: orderId
+                order_id: order_id
             },
             include: {
-                Product: true,
-                Order: true
+                product: true,
+                order: true,
+
             }
         })
 
         return item;
+
+        console.log(item)
     }
 }
 

@@ -1,14 +1,14 @@
 import prismaClient from "../../prisma";
 
 interface OrderRequest {
-    orderId: string
+    order_id: string
 }
 
 class RemoveOrderService {
-    async execute({ orderId }: OrderRequest) {
+    async execute({ order_id }: OrderRequest) {
         const order = prismaClient.order.delete({
             where: {
-                id: orderId
+                id: order_id
             }
         })
 

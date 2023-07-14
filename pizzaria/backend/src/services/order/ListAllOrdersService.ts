@@ -8,7 +8,6 @@ class ListAllOrdersService {
                 status: false
             }
         })
-
         return ordersList;
     }
 }

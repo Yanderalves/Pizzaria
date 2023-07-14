@@ -5,14 +5,14 @@ import { AddItemService } from "../../services/order/AddItemService";
 class AddItemController {
     async handle(req: Request, res: Response) {
 
-        const { orderId, productId, amount } = req.body;
+        const { order_id, product_id, amount } = req.body;
 
         const addItemService = new AddItemService();
 
         const item = await addItemService.execute({
-            productId,
+            product_id,
             amount,
-            orderId
+            order_id
         })
 
         return res.json(item);

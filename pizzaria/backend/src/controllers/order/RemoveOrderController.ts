@@ -5,15 +5,15 @@ import { RemoveOrderService } from "../../services/order/RemoveOrderService";
 
 class RemoveOrderController {
     async handle(req: Request, res: Response) {
-        const orderId = req.query.order_id as string;
+        const order_id = req.query.order_id as string;
 
-        if (!orderId) {
-            throw new Error("orderId is required")
+        if (!order_id) {
+            throw new Error("order_id is required")
         }
 
         const removeOrderService = new RemoveOrderService();
 
-        const order = await removeOrderService.execute({ orderId })
+        const order = await removeOrderService.execute({ order_id })
 
         return res.json(order);
     }

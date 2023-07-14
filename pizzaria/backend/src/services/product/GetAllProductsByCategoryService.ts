@@ -1,14 +1,14 @@
 import prismaClient from "../../prisma"
 
 interface ProductRequest {
-    categoryId: string
+    category_id: string
 }
 
 class GetAllProductsByCategoryService {
-    async execute({ categoryId }: ProductRequest) {
+    async execute({ category_id }: ProductRequest) {
         const productsByCategory = await prismaClient.product.findMany({
             where: {
-                categoryId: categoryId
+                category_id: category_id
             },
             select: {
                 id: true,

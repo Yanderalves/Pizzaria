@@ -6,10 +6,13 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import colors from "../../colors";
 
 export default function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={require("../../../assets/logo.png")} />
@@ -19,12 +22,17 @@ export default function SignIn() {
           placeholder="Digite seu email"
           placeholderTextColor={colors.white}
           style={styles.input}
+          value={email}
+          onChangeText={setEmail}
         ></TextInput>
 
         <TextInput
           placeholder="Sua senha"
           placeholderTextColor={colors.white}
           style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry={true}
         ></TextInput>
 
         <TouchableOpacity style={styles.button}>

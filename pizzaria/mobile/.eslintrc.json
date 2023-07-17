@@ -1,0 +1,17 @@
+{
+    "extends": [
+        "@rocketseat/eslint-config/node"
+    ],
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+        "rules": {
+            "prettier/prettier": [
+                "error",
+                {
+                    "endOfLine": "auto"
+                }
+            ]
+        }
+}

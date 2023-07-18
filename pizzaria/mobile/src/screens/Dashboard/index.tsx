@@ -4,17 +4,17 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
+  SafeAreaView,
 } from "react-native";
-import React, { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import React from "react";
 import colors from "../../colors";
 
 export default function Dashboard() {
-  const { signOut } = useContext(AuthContext);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.text}>Novo pedido</Text>
       <TextInput
+        keyboardType="numeric"
         placeholderTextColor={colors.white}
         style={styles.input}
         placeholder="Número da mesa"
@@ -22,7 +22,7 @@ export default function Dashboard() {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Abir mesa</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
 

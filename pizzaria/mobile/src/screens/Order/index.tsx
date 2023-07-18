@@ -1,15 +1,16 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
-import React, { useState } from "react";
 import { Feather } from "@expo/vector-icons";
+import React, { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import { useRoute, RouteProp } from "@react-navigation/native";
+import { RouteProp, useRoute } from "@react-navigation/native";
 import colors from "../../colors";
+import api from "../../services/api";
 
 type RouterDetailsParams = {
   Order: {
@@ -18,10 +19,29 @@ type RouterDetailsParams = {
   };
 };
 
+type CategoryProps = {
+  name: string;
+  id: string;
+};
+
 type OrderRouteProps = RouteProp<RouterDetailsParams, "Order">;
 
 export default function Order() {
   const [amount, setAmount] = useState("1");
+  const [category, setCategory] = useState<CategoryProps[]>([]);
+  const [categorySelected, setCategorySelected] = useState<CategoryProps>();
+
+  useEffect(() => {
+    async function loadInfo() {
+      const response = await api.get("/category");
+
+      setCategory(response.data);
+
+      setCategorySelected(response.data[0]);
+    }
+
+    loadInfo();
+  }, []);
 
   const route = useRoute<OrderRouteProps>();
   return (

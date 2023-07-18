@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useState } from "react";
+import React, { ReactNode, createContext, useEffect, useState } from "react";
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import api from "../services/api";
 
@@ -18,6 +18,7 @@ type AuthContextData = {
   user: UserProps;
   isAuthenticated: boolean;
   signIn: (credentials: SignInProps) => Promise<void>;
+  signOut: () => Promise<void>;
 };
 
 type AuthProviderProps = {
@@ -27,7 +28,6 @@ type AuthProviderProps = {
 export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [loadingAuth, setLoadingAuth] = useState(false);
   const [user, setUser] = useState<UserProps>({
     email: "",
     id: "",
@@ -36,6 +36,25 @@ export function AuthProvider({ children }: AuthProviderProps) {
   });
 
   const isAuthenticated = !!user.token;
+
+  useEffect(() => {
+    async function getUser() {
+      const userInfo = await AsyncStorageLib.getItem("@pizzaria");
+      const hasUser: UserProps = JSON.parse(userInfo || "{}");
+
+      if (Object.keys(hasUser).length > 0) {
+        api.defaults.headers.common.Authorization = `Bearer ${hasUser.token}`;
+
+        setUser({
+          id: hasUser.id,
+          email: hasUser.email,
+          name: hasUser.name,
+          token: hasUser.token,
+        });
+      }
+    }
+    getUser();
+  }, []);
 
   async function signIn({ email, password }: SignInProps) {
     try {
@@ -63,12 +82,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } catch (error) {
       console.log("F", error);
     }
+  }
 
-    setLoadingAuth(false);
+  async function signOut() {
+    await AsyncStorageLib.clear().then(() => {
+      setUser({
+        email: "",
+        id: "",
+        name: "",
+        token: "",
+      });
+    });
   }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, signIn }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

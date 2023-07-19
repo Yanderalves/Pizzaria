@@ -1,10 +1,9 @@
 import {
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  TextInput,
   SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
 } from "react-native";
 
 import React, { useState } from "react";
@@ -14,6 +13,7 @@ import { StackParamsList } from "../../routes/app.routes";
 
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import api from "../../services/api";
 
 export default function Dashboard() {
   const [number, serNumber] = useState("");
@@ -22,7 +22,17 @@ export default function Dashboard() {
   async function openOrder() {
     if (number === " ") return;
 
-    navigation.navigate("Order", { number, order_id: "teste" });
+    try {
+      const response = await api.post("/order", {
+        table: Number(number),
+      });
+      navigation.navigate("Order", {
+        number,
+        order_id: response.data.id,
+      });
+    } catch (error) {
+      console.log("Erro.");
+    }
   }
 
   return (

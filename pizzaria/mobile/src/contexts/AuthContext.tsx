@@ -1,5 +1,5 @@
-import React, { ReactNode, createContext, useEffect, useState } from "react";
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
+import React, { ReactNode, createContext, useEffect, useState } from "react";
 import api from "../services/api";
 
 type UserProps = {

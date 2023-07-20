@@ -8,12 +8,12 @@ import {
   View,
 } from "react-native";
 import colors from "../../colors";
-import { CategoryProps } from "../../screens/Order";
+import { CategoryProps, ProductProps } from "../../screens/Order";
 
 type ModalPickerProps = {
-  options: CategoryProps[];
+  options: CategoryProps[] | ProductProps[];
   handleCloseModal: () => void;
-  selectedItem: (item: CategoryProps) => void;
+  selectedItem: (item: ProductProps | CategoryProps) => void;
 };
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
@@ -61,13 +61,13 @@ const styles = StyleSheet.create({
   option: {
     borderBottomWidth: 1,
     borderColor: colors["gray-100"],
-    height: 45,
+    height: 50,
     alignItems: "flex-start",
     justifyContent: "center",
-    padding: 5,
+    padding: 10,
   },
   textOption: {
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 18,
   },
 });

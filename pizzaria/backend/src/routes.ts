@@ -1,11 +1,11 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 import multer from "multer";
 
-import { CreateUserController } from "./controllers/user/CreateUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
+import { CreateUserController } from "./controllers/user/CreateUserController";
 
-import { DetailsUserController } from "./controllers/user/DetailsUserController";
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
+import { DetailsUserController } from "./controllers/user/DetailsUserController";
 
 import { GetAllCategoriesController } from "./controllers/category/GetAllCategoryController";
 
@@ -16,14 +16,15 @@ import { CreateOrderController } from "./controllers/order/CreateOrderController
 
 import { userValid } from "./middlewares/UserValid";
 
-import uploadConfig from "./config/multer"
-import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
+import cors from "cors";
+import uploadConfig from "./config/multer";
 import { AddItemController } from "./controllers/order/AddItemController";
-import { SendOrderController } from "./controllers/order/SendOrderController";
+import { FinishOrderController } from "./controllers/order/FinishOrderController";
 import { ListAllOrdersController } from "./controllers/order/ListAllOrdersController";
 import { OrderDetailsController } from "./controllers/order/OrderDetailsController";
-import { FinishOrderController } from "./controllers/order/FinishOrderController";
-import cors from "cors";
+import { RemoveItemController } from "./controllers/order/RemoveItemController";
+import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
+import { SendOrderController } from "./controllers/order/SendOrderController";
 
 const router = Router();
 
@@ -73,4 +74,8 @@ router.get("/order/details", userValid, new OrderDetailsController().handle);
 
 router.patch("/order/finish", userValid, new FinishOrderController().handle);
 
+router.delete("/order/item", userValid, new RemoveItemController().handle)
+
+
 export { router };
+

@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 45rem;
+    height: 17rem;
+
+    h2 {
+        font-size: 2rem;
+        color: var(--white);
+    }
+
+    .table {
+        font-size: 1.5rem;
+        color: var(--green-900);
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+
+}
+
+.containerItens {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    h3 {
+        font-size: 1.125rem;
+        color: var(--green-900);
+    }
+
+    p {
+        color: var(--white);
+    }
+
+    span {
+        color: var(--white);
+    }
+}
+
+.button {
+    color: var(--red-900);
+    background-color: var(--dark-900);
+    padding: 10px;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}

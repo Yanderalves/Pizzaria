@@ -1,0 +1,79 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    height: 90vh;
+
+    h2 {
+        color: var(--white);
+        font-size: 2.4rem;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 10px;
+
+    textarea {
+        resize: none;
+        height: 6rem;
+    }
+}
+
+.input {
+    color: var(--white);
+    background-color: var(--dark-900);
+    border: 0.01rem solid var(--gray-100);
+    padding: 10px;
+    border-radius: 0.2rem;
+}
+
+.input::placeholder {
+    color: var(--white);
+}
+
+.buttonAdd {
+    background-color: var(--green-900);
+    padding: 10px;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.labelFile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background-color: var(--dark-900);
+    border: 0.01rem solid var(--gray-100);
+    border-radius: 0.2rem;
+    height: 15rem;
+    position: relative;
+    cursor: pointer;
+
+    .inputFile {
+        display: none;
+    }
+
+    .containerImage {
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .imagePreview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+    }
+
+    span {
+        position: absolute;
+        z-index: 1000;
+    }
+}

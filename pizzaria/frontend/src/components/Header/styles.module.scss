@@ -1,0 +1,41 @@
+.headerContainer {
+    height: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+
+    margin: 0 auto;
+}
+
+.menuHeader {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    a {
+        color: var(--white);
+        transition: color 0.5s;
+
+        &:hover {
+            color: var(--red-900);
+        }
+    }
+
+    button {
+        background: none;
+        border: none;
+        transition: transform 0.5s;
+
+        &:hover {
+            transform: scale(1.20);
+
+        }
+    }
+
+}

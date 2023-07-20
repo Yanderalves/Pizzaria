@@ -5,17 +5,16 @@
   box-sizing: border-box;
 }
 
-
 :root {
-  --white: #FFF;
+  --white: #fff;
   --black: #000;
 
   --dark-900: #101026;
-  --dark-700: #1D1D2E;
+  --dark-700: #1d1d2e;
 
-  --gray-100: #8A8A8A;
-  --green-900: #3FFFA3;
-  --red-900: #FF3F4B;
+  --gray-100: #8a8a8a;
+  --green-900: #3fffa3;
+  --red-900: #ff3f4b;
 }
 
 a {
@@ -35,7 +34,7 @@ button {
   font: 400 1rem sans-serif;
 }
 
-@media (max-width:720px) {
+@media (max-width: 720px) {
   html {
     font-size: 87.5%;
   }

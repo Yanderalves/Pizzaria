@@ -1,0 +1,22 @@
+.button {
+    background: var(--red-900);
+    text-align: center;
+    color: var(--white);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.buttonAdd {
+    background-color: var(--green-900);
+    padding: 10px;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.2rem;
+}

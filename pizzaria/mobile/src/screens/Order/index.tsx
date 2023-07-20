@@ -11,9 +11,11 @@ import {
 } from "react-native";
 
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import colors from "../../colors";
 import ListItem from "../../components/ListItem";
 import ModalPicker from "../../components/ModalPicker";
+import { StackParamsList } from "../../routes/app.routes";
 import api from "../../services/api";
 
 type RouterDetailsParams = {
@@ -80,7 +82,7 @@ export default function Order() {
   }, [categorySelected]);
 
   const route = useRoute<OrderRouteProps>();
-  const navigate = useNavigation();
+  const navigate = useNavigation<StackNavigationProp<StackParamsList>>();
 
   async function handleCloseOrder() {
     await api.delete("/order", {
@@ -128,6 +130,13 @@ export default function Order() {
     };
 
     setItens((oldArray) => [...oldArray, data]);
+  }
+
+  async function handleScreenFinishOrder() {
+    navigate.navigate("FinishOrder", {
+      order_id: route.params.order_id,
+      number: route.params.number,
+    });
   }
 
   return (
@@ -189,7 +198,9 @@ export default function Order() {
             { opacity: !(itens.length > 0) ? 0.6 : 1 },
           ]}
         >
-          <Text style={styles.textButton}>Avançar</Text>
+          <Text onPress={handleScreenFinishOrder} style={styles.textButton}>
+            Avançar
+          </Text>
         </TouchableOpacity>
       </View>
 

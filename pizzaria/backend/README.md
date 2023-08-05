@@ -1,18 +1,13 @@
-# Projeto pizzaria - Frontend
-Feito utilizando next js
-<!-- 
-![Imagem do projeto](./assets/Coffee%20shopp%20App%20React%20native.png)
-
-[Vídeo do projeto executando](https://youtu.be/1vfpjbaTVy0) -->
+# Projeto pizzaria - Backend
+Projeto desenvolvido com uso do node js, prisma e postegres
 
 ## 🚀 Começando
-
-
+### Requisitos
 * Ter o  ```git```  instalado - Realizar o clone do projeto
 * Ter o ```node js``` instalado - Instalar dependências e executar o projeto
 
-
 ### 🔧 Instalação
+
 
 No seu terminal, execute: 
 
@@ -20,27 +15,28 @@ No seu terminal, execute:
 git clone https://github.com/Yanderalves/Pizzaria
 ```
 
+E em seguida:
+
+
 ```
-cd frontend
+cd Pizzaria/backend
 ```
 
 ```
 npm install
 ```
 
-E por fim:
-
 ```
 npm run dev
 ```
 
-Feito isso, o projeto já deve executar.
+Feito isso, o projeto já deve iniciar a execução
 
 
-## 🛠️ Construído com
 
-
-* [Next JS](https://nextjs.org/) -  Estrutura web de desenvolvimento front-end React
+* [Node JS](https://nodejs.org/en) - Interpretador Javascript
+* [Postgres](https://www.postgresql.org/) - Banco de dados
+* [Prisma](https://www.postgresql.org/) - Kit de ferramentas para lidar com banco de dados
 
 ## ✒️ Autores
 

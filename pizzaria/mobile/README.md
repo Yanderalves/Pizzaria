@@ -1,6 +1,6 @@
 # Projeto pizzaria - Mobile
 
-![Imagem do projeto](./public/Pizzaria%20-%20Frontend.png)
+![Imagem do projeto](./assets/Pizzaria%20-.png)
 
 
 ## 🚀 Começando

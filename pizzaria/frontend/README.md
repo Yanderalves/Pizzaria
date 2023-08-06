@@ -1,15 +1,16 @@
 # Projeto pizzaria - Frontend
-Feito utilizando next js
-<!-- 
-![Imagem do projeto](./assets/Coffee%20shopp%20App%20React%20native.png)
 
-[Vídeo do projeto executando](https://youtu.be/1vfpjbaTVy0) -->
+![Imagem do projeto](./public/Pizzaria%20-%20Frontend.png)
+
 
 ## 🚀 Começando
 
 
+### Requisitos
+
 * Ter o  ```git```  instalado - Realizar o clone do projeto
 * Ter o ```node js``` instalado - Instalar dependências e executar o projeto
+* Ter o [Backend](https://github.com/Yanderalves/Pizzaria/tree/master/pizzaria/backend) em execução
 
 
 ### 🔧 Instalação

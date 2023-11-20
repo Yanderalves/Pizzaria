@@ -1,22 +1,21 @@
 import express, { Request, Response, NextFunction } from 'express';
 import "express-async-errors"
-import cors from "cors";
 import path from "path";
 
 import { router } from './routes';
 
-const app = express();
+const main = express();
 
-app.use(express.json());
-app.use(router);
+main.use(express.json());
+main.use(router);
 
 
-app.use(
+main.use(
     "/files",
     express.static(path.resolve(__dirname, "..", "uploads"))
 )
 
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+main.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof Error) {
         return res.status(400).json({
             error: err.message
@@ -29,6 +28,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
-app.listen(3030, () => {
+main.listen(3030, () => {
     console.log("Server running")
 });

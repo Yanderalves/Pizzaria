@@ -1,4 +1,3 @@
-import prismaClient from "../../prisma";
 import { Request, Response } from "express";
 import { AuthUserService } from "../../services/user/AuthUserService";
 

@@ -24,14 +24,13 @@ type ItemProps = {
   id: string
 }
 
-interface categoryProps {
-  categoryList: ItemProps[]
+interface CategoryProps {
+  readonly categoryList: ItemProps[]
 }
 
-export default function Product({ categoryList }: categoryProps) {
+export default function Product({ categoryList =[]}: CategoryProps) {
   const [image, setImage] = useState<File>()
   const [urlImage, setUrlImage] = useState('')
-  const [categories, setCategories] = useState(categoryList || [])
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
@@ -52,7 +51,7 @@ export default function Product({ categoryList }: categoryProps) {
     data.append('name', name)
     data.append('price', price)
     data.append('description', description)
-    data.append('category_id', categories[categorySelected].id)
+    data.append('category_id', categoryList[categorySelected].id)
     data.append('banner', image)
 
     await api.post('/product', data)
@@ -109,9 +108,9 @@ export default function Product({ categoryList }: categoryProps) {
             className={styles.input}
             onChange={handleCategory}
           >
-            {categories.map((item, index) => {
+            {categoryList.map((item, index) => {
               return (
-                <option key={index} value={index}>
+                <option key={item.id} value={index}>
                   {item.name}
                 </option>
               )

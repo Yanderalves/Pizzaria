@@ -11,7 +11,7 @@ import colors from "../../colors";
 import { CategoryProps, ProductProps } from "../../screens/Order";
 
 type ModalPickerProps = {
-  options: CategoryProps[] | ProductProps[];
+  options: readonly CategoryProps[] | readonly ProductProps[];
   handleCloseModal: () => void;
   selectedItem: (item: ProductProps | CategoryProps) => void;
 };
@@ -25,7 +25,7 @@ export default function ModalPicker({
 }: ModalPickerProps) {
   const option = options.map((item, index) => (
     <TouchableOpacity
-      key={index}
+      key={item.id}
       style={styles.option}
       onPress={() => onPressItem(item)}
     >

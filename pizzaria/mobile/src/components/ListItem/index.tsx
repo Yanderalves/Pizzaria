@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import colors from "../../colors";
 
 type ItemProps = {
-  data: {
+  readonly data: {
     id: string;
     product_id: string;
     name: string;

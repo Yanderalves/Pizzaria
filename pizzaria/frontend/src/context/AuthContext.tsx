@@ -22,7 +22,7 @@ type SignUpProps = {
 }
 
 type AuthProviderProps = {
-  children: ReactNode
+  readonly children: ReactNode
 }
 
 type AuthContextData = {
@@ -93,11 +93,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   async function signUp({ name, email, password }: SignUpProps) {
     try {
-      const response = await api.post('users', {
-        name,
-        email,
-        password,
-      })
       toast.success('Usuário cadastrado com sucesso')
       Router.push('/')
     } catch (error) {

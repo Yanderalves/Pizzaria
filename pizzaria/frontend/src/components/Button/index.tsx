@@ -3,9 +3,10 @@ import { ButtonHTMLAttributes, ReactNode } from 'react'
 import styles from './styles.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  loading?: boolean
-  children: ReactNode
-  isLoginButton: boolean
+  readonly loading?: boolean
+  readonly children: ReactNode
+  readonly isLoginButton: boolean
+
 }
 
 export default function Button({

@@ -4,10 +4,10 @@ import { OrderItemProps } from '../../pages/dashboard'
 import styles from './style.module.scss'
 
 interface ModalOrderProps {
-  isOpen: boolean
-  onRequestClose: () => void
-  order: OrderItemProps[]
-  handleFinishOrder: (id: string) => void
+  readonly isOpen: boolean
+  readonly onRequestClose: () => void
+  readonly order: OrderItemProps[]
+  readonly handleFinishOrder: (id: string) => void
 }
 
 export default function ModalOrder({
@@ -47,9 +47,9 @@ export default function ModalOrder({
         <span className={styles.table}>
           Mesa:<span> {order[0].order.table}</span>
         </span>
-        {order.map((item, index) => {
+        {order.map((item) => {
           return (
-            <div key={index} className={styles.containerItens}>
+            <div key={item.order_id} className={styles.containerItens}>
               <h3>
                 <span>{item.amount} - </span> {item.product.name}
               </h3>

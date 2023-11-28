@@ -20,7 +20,7 @@ export function setupAPIClient(context = undefined) {
     }, (error: AxiosError) => {
         if (error.response?.status === 401) {
             // Desloga
-            if (typeof window !== undefined) {
+            if (typeof window !== 'undefined') {
                 signOut();
             } else {
                 return Promise.reject(new AuthtokenError())

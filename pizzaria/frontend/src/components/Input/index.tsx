@@ -16,7 +16,7 @@ export default function Input({ ...rest }: InputProps) {
 }
 
 export function TextArea({ ...rest }: TextAreaProps) {
-  <textarea {...rest} className={styles.input}></textarea>
+  return <textarea {...rest} className={styles.input}></textarea>
 }
 
 function MonetaryInput() {

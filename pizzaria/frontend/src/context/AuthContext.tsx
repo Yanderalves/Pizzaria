@@ -1,6 +1,6 @@
 import Router from 'next/router'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
-import { ReactNode, createContext, useEffect, useState } from 'react'
+import { ReactNode, createContext, useEffect, useState,useMemo } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../services/apiClient'
 
@@ -46,7 +46,7 @@ export function signOut() {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>()
-  const isAuthenticated = !!user
+  const isAuthenticated = useMemo(()=> !!user.token, [user])
 
   useEffect(() => {
     const { '@nextauth.token': token } = parseCookies()

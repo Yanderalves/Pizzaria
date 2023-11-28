@@ -25,18 +25,18 @@ interface HomeProps {
 }
 
 export type OrderItemProps = {
-  id: string
-  amount: number
-  order_id: string
-  product_id: string
-  product: {
+  readonly id: string
+  readonly amount: number
+  readonly order_id: string
+  readonly product_id: string
+  readonly product: {
     id: string
     name: string
     description: string
     price: string
     banner: string
   }
-  order: {
+  readonly order: {
     id: string
     table: string | number
     status: boolean

@@ -1,6 +1,7 @@
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
-import React, { ReactNode, createContext, useEffect, useState } from "react";
+import React, { ReactNode, createContext, useEffect, useState, useMemo } from "react";
 import api from "../services/api";
+
 
 type UserProps = {
   id: string;
@@ -35,7 +36,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     token: "",
   });
 
-  const isAuthenticated = !!user.token;
+  const isAuthenticated = useMemo(()=> !!user.token, [user]);
 
   useEffect(() => {
     async function getUser() {

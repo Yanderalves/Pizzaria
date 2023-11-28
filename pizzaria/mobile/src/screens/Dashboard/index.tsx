@@ -16,7 +16,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import api from "../../services/api";
 
 export default function Dashboard() {
-  const [number, serNumber] = useState("");
+  const [number, setNumber] = useState("");
   const navigation = useNavigation<StackNavigationProp<StackParamsList>>();
 
   async function openOrder() {
@@ -45,7 +45,7 @@ export default function Dashboard() {
         style={styles.input}
         placeholder="Número da mesa"
         value={number}
-        onChangeText={serNumber}
+        onChangeText={setNumber}
       />
 
       <TouchableOpacity style={styles.button} onPress={openOrder}>

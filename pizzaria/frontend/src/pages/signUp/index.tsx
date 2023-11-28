@@ -5,10 +5,8 @@ import styles from "../../styles/Home.module.scss"
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useContext } from "react";
 import { authContext } from "../../context/AuthContext";
-import { useContext } from "react";
-import { GetServerSideProps } from "next";
 
 
 
@@ -22,11 +20,6 @@ export default function SignUp() {
 
     async function handleSignUp(event: FormEvent) {
         event.preventDefault();
-
-
-        const data = {
-            name, email, password
-        }
 
         await signUp({ name, email, password });
 

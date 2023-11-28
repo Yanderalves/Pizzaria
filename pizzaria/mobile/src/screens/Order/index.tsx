@@ -192,10 +192,10 @@ export default function Order() {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          disabled={!(itens.length > 0)}
+          disabled={(itens.length <= 0)}
           style={[
             styles.buttonAdvanced,
-            { opacity: !(itens.length > 0) ? 0.6 : 1 },
+            { opacity: (itens.length <= 0) ? 0.6 : 1 },
           ]}
         >
           <Text onPress={handleScreenFinishOrder} style={styles.textButton}>

@@ -5,10 +5,10 @@ import colors from "../../colors";
 
 type ItemProps = {
   readonly data: {
-    id: string;
-    product_id: string;
-    name: string;
-    amount: string | number;
+    readonly id: string;
+    readonly product_id: string;
+    readonly name: string;
+    readonly amount: string | number;
   };
   deleteItem: (item_id: string) => void;
 };

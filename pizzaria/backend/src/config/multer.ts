@@ -1,6 +1,6 @@
 import multer from "multer";
 import crypto from "crypto"
-import { extname, resolve } from "path"
+import { resolve } from "path"
 
 
 export default {

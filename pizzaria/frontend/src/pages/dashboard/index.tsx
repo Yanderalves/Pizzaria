@@ -21,7 +21,7 @@ type OrderProps = {
   name: string | null
 }
 interface HomeProps {
-  orders: OrderProps[]
+  readonly orders: OrderProps[]
 }
 
 export type OrderItemProps = {

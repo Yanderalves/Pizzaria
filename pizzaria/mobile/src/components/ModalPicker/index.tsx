@@ -11,7 +11,7 @@ import colors from "../../colors";
 import { CategoryProps, ProductProps } from "../../screens/Order";
 
 type ModalPickerProps = {
-  options: readonly CategoryProps[] | readonly ProductProps[];
+  readonly options: readonly CategoryProps[] | readonly ProductProps[];
   handleCloseModal: () => void;
   selectedItem: (item: ProductProps | CategoryProps) => void;
 };
